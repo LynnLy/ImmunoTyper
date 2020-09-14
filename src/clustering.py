@@ -317,7 +317,7 @@ class DSF(ClusteringGenerator):
 
 		try:	## reads are a path
 			self.reads = dict([(x.id, x) for x in SeqIO.parse(reads, 'fasta')])
-		except AttributeError as e: 	## reads is a list of SeqRecord-like objects
+		except (TypeError, AttributeError) as e: 	## reads is a list of SeqRecord-like objects
 			self.reads = dict([(x.id, x) for x in reads])
 		finally:
 			if cached_output and self.distance_calculator.matrix:

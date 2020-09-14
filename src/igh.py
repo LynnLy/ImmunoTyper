@@ -114,7 +114,7 @@ def fix_rev_comp(reads_path,
 	try:
 		mappings = mapper.run(reads_path, allele_db)
 		reads = dict([(x.id, x) for x in SeqIO.parse(reads_path, 'fasta')])
-	except IOError, ValueError:
+	except (IOError, ValueError):
 		log.error('Reads file does not exist or is invalid')
 		raise ValueError
 
