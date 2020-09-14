@@ -4,6 +4,7 @@ from common import log, SeqRecord, initialize_logger
 from Bio import SeqIO
 from minimap_wrapper import MinimapWrapper
 from cluster_class import SubCluster
+from blasr_wrapper import BlasrWrapper
 
 
 
