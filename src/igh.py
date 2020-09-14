@@ -50,7 +50,8 @@ def run(reads_path, expected_coverage, blasr_src='blasr', minimap='minimap', spo
 
 	# break clusters into subclusters using LP model
 	log.info('-----\nBreaking clusters...')
-	breaker = cluster_breaker.IlpBreaker(allele_db=allele_db, 
+	breaker = cluster_breaker.IlpBreaker(allele_db=allele_db,
+										minimap=MinimapWrapper(minimap_src=minimap,params='-cx map-pb -k10 -w3'), 
 										read_depth=coverage,
 										max_copy=max_copy,
 										poa=poa,
